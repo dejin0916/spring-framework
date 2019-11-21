@@ -70,6 +70,7 @@ public interface ResourcePatternResolver extends ResourceLoader {
 	 * @param locationPattern the location pattern to resolve
 	 * @return the corresponding Resource objects
 	 * @throws IOException in case of I/O errors
+	 * 支持根据指定的资源路径匹配模式每次返回多个 Resource 实例
 	 */
 	Resource[] getResources(String locationPattern) throws IOException;
 

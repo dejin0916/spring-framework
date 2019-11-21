@@ -28,11 +28,13 @@ import org.springframework.lang.Nullable;
  * @author Juergen Hoeller
  * @since 4.3
  * @see DefaultResourceLoader#addProtocolResolver
+ * 自定义的Resolver可以通过DefaultResourceLoader#addProtocolResolver方法添加
  */
 @FunctionalInterface
 public interface ProtocolResolver {
 
 	/**
+	 * 使用指定的 ResourceLoader，解析指定的 location 。
 	 * Resolve the given location against the given resource loader
 	 * if this implementation's protocol matches.
 	 * @param location the user-specified resource location
