@@ -481,7 +481,7 @@ pointcut expressions by name. The following example shows three pointcut express
 [source,java,indent=0,subs="verbatim,quotes",role="primary"]
 .Java
 ----
-	@Pointcut("execution(public * *(..))")
+	@Pointcut("execution(public * \*(..))")
 	private void anyPublicOperation() {} // <1>
 
 	@Pointcut("within(com.xyz.someapp.trading..*)")
@@ -499,7 +499,7 @@ trading module.
 [source,kotlin,indent=0,subs="verbatim,quotes",role="secondary"]
 .Kotlin
 ----
-	@Pointcut("execution(public * *(..))")
+	@Pointcut("execution(public * \*(..))")
 	private fun anyPublicOperation() {} // <1>
 
 	@Pointcut("within(com.xyz.someapp.trading..*)")
@@ -739,14 +739,14 @@ The following examples show some common pointcut expressions:
 +
 [literal,subs="verbatim,quotes"]
 ----
-	execution(* com.xyz.service.*.*(..))
+	execution(* com.xyz.service.\*.*(..))
 ----
 
 * The execution of any method defined in the service package or one of its sub-packages:
 +
 [literal,subs="verbatim,quotes"]
 ----
-	execution(* com.xyz.service..*.*(..))
+	execution(* com.xyz.service..\*.*(..))
 ----
 
 * Any join point (method execution only in Spring AOP) within the service package:
@@ -1273,7 +1273,7 @@ The following example shows how to use around advice:
 			// start stopwatch
 			val retVal = pjp.proceed()
 			// stop stopwatch
-			return pjp.proceed()
+			return retVal
 		}
 
 	}
@@ -3956,7 +3956,7 @@ for AspectJ LTW:
 * `spring-aop.jar`
 * `aspectjweaver.jar`
 
-If you use the <<aop-aj-ltw-environment-generic, Spring-provided agent to enable
+If you use the <<aop-aj-ltw-environments-generic, Spring-provided agent to enable
 instrumentation>>, you also need:
 
 * `spring-instrument.jar`
